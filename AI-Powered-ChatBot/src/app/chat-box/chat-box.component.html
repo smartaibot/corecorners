@@ -1,0 +1,30 @@
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+/>
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+  type="text/css"
+  rel="stylesheet"
+/>
+<div class="main-container">
+<div class="title">
+    CoreCorners
+</div>
+<div class="chatbox">
+    <div #scrollMe [scrollTop]="scrollMe.scrollHeight" class="messages">
+        <div *ngFor="let message of messages" [class.right]="message.self" [class.left]="message.bot">
+            {{message.text}}
+        </div>
+
+    </div>
+    <div class="input-container">
+        <input type="text" placeholder="Type your query.." class="inputtext" [(ngModel)]= "replyMessage" (keydown.enter)="reply()">
+        <button class="replyBtn" (click) = "reply()">
+            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+</div>
